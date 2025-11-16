@@ -1,0 +1,131 @@
+body {
+    background-color: #0d0d0d; /* Майже чорний фон */
+    color: #c0c0c0; /* Світло-сірий текст */
+    font-family: 'Courier New', monospace; 
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+    line-height: 1.6;
+}
+
+#game-container {
+    max-width: 700px;
+    margin: 20px auto;
+    border: 2px solid #330000; /* Темна, криваво-червона рамка */
+    padding: 30px;
+    background-color: #1a1a1a;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+}
+
+h1 {
+    color: #ff3333; 
+    text-shadow: 0 0 8px #ff0000;
+    margin-bottom: 20px;
+}
+
+#status-bar {
+    padding: 10px;
+    background-color: #2a2a2a;
+    border-bottom: 1px solid #330000;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+#story-text {
+    min-height: 150px;
+    margin: 20px 0;
+    padding: 10px;
+    text-align: left;
+    white-space: pre-wrap;
+    border-left: 3px solid #660000;
+}
+
+#story-text p {
+    margin: 5px 0;
+    /* Робимо текст більш атмосферним, додаючи тінь */
+    text-shadow: 0 0 1px #ff3333;
+}
+
+#action-buttons {
+    margin-top: 30px;
+}
+
+button {
+    background-color: #330000;
+    color: #ffffff;
+    border: 1px solid #ff3333;
+    padding: 12px 25px;
+    cursor: pointer;
+    margin: 8px;
+    font-size: 1em;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+button:hover {
+    background-color: #550000;
+    box-shadow: 0 0 10px rgba(255, 51, 51, 0.5);
+}
+
+/* ==================================== */
+/* === Анімації === */
+/* ==================================== */
+
+/* --- Анімація Тремтіння (Low Sanity) --- */
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.low-sanity {
+    animation: shake 0.1s infinite; /* Швидке, постійне тремтіння */
+    border-color: #aa0000 !important; /* Червоні рамки */
+}
+
+/* --- Анімація Тексту: Друкування --- */
+.typewriter h2 {
+    overflow: hidden; 
+    white-space: nowrap; 
+    /* Додаємо анімації: typing і мигання курсора */
+    animation: 
+        typing 3.5s steps(40, end), 
+        blink-caret 0.75s step-end infinite; 
+    border-right: 3px solid #ff3333; /* Створює видимий курсор */
+    width: 0; /* Починаємо з нульової ширини */
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #ff3333; }
+}
+
+/* --- Анімація Флешу (Jump Scare) --- */
+.flash-effect {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    opacity: 0;
+    z-index: 1000;
+    animation: flash 0.1s ease-out; /* Дуже короткий спалах */
+}
+
+@keyframes flash {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
